@@ -72,7 +72,7 @@ console.log("objectF2", objectF2);
 
 // newと同等の処理を行う関数
 function newOpe(C, ...args) {
-  const _this = Object.create(c.prototype);
+  const _this = Object.create(C.prototype);
   const result = C.apply(_this, args);
   // typeof null === "object" なのでnullチェックを入れる
   if (typeof result === "object" && result !== null) {
