@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "lite-server": "^2.5.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.1.1"
   }
 }
