@@ -33,3 +33,29 @@ for (const i of obj) {
 }
 
 console.log(new Set(obj))
+
+const obj2 = {
+  prop1: "value",
+  prop2: "value",
+  prop3: "value",
+};
+
+Object.prototype[Symbol.iterator] = function () {
+  const keys = Object.keys(this)
+  let i = 0
+  let _this = this;
+  return {
+    next: function () {
+      let key = keys[i++]
+      return {
+        value: [key, _this[key]],
+        done: i > keys.length,
+      };
+    },
+  };
+};
+
+// const items = Object.entries(obj)
+for (let item of obj2) {
+  console.log(item)
+}
