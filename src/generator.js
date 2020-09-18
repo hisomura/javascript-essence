@@ -30,3 +30,24 @@ for (const i of obj2) {
 for (const j of gen(10)) {
   console.log(j);
 }
+
+const items = {
+  prop1: "value",
+  prop2: "value",
+  prop3: "value",
+};
+
+// iteratorが実装されてないのでofは使えない
+// for (let [k, v] of items) {
+//   console.log(k, v)
+// }
+
+Object.prototype[Symbol.iterator] = function* () {
+  for (let key in this) {
+    yield [key, this[key]];
+  }
+};
+
+for (let [k, v] of items) {
+  console.log(k, v)
+}
