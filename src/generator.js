@@ -51,3 +51,17 @@ Object.prototype[Symbol.iterator] = function* () {
 for (let [k, v] of items) {
   console.log(k, v)
 }
+
+const obj1 = {
+  prop1: "value",
+  prop2: "value",
+  prop3: "value",
+};
+
+Object.prototype[Symbol.iterator] = function *() {
+  for (let key in this) {
+    yield [key, this[key]]
+  }
+}
+console.log({...obj1})
+console.log([...obj1])
